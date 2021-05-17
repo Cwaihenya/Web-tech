@@ -7,7 +7,7 @@ server = WEBrick::HTTPServer.new({ # webrcik instance created and stored in loca
 ['INT', 'TERM'].each {|signal|
   Signal.trap(signal){ server.shutdown }
 }
-server.mount('/test', WEBrick::HTTPServlet::ERBHandler, 'try.html.erb')
+server.mount('/', WEBrick::HTTPServlet::ERBHandler, 'try.html.erb')
 server.mount('/indicate.cgi', WEBrick::HTTPServlet::CGIHandler, 'indicate.rb')
 server.mount('/goya.cgi', WEBrick::HTTPServlet::CGIHandler, 'goya.rb')
 server.mount('/quality.cgi', WEBrick::HTTPServlet::CGIHandler, 'quality.rb')
